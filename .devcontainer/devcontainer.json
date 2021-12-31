@@ -21,8 +21,10 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
+	//add environmental variables.
+	"containerEnv": { "CPPUTEST_HOME": "/usr/local" },
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "gcc -v",
+	"postCreateCommand": "git clone git://github.com/cpputest/cpputest.git /home/vscode/cpputest && cmake -S /home/vscode/cpputest -B /home/vscode/cpputest/cpputest_build && cd /home/vscode/cpputest/cpputest_build && sudo make && sudo make install",
 
 	// Comment out this line to run as root instead.
 	"remoteUser": "vscode"
